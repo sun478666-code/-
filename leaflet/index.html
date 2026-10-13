@@ -1,0 +1,263 @@
+<title>가치잇는평생교육원 리플렛</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Jua&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+/* Layout: A4 가로 3단 접지(99mm × 3). 바깥면 [안내 · 뒷면 · 표지], 안쪽면 [교육원 · 프로그램 · 수다쟁이].
+   인쇄물이라 종이 한 가지 톤으로만 디자인. 글자 크기는 단(panel) 너비 기준 cqi 단위. */
+:root {
+  --paper: #FBFAF5;      /* 종이 */
+  --ink: #1D2B2A;        /* 본문 */
+  --pine: #1F4A45;       /* 교육원 메인 – 짙은 소나무색 */
+  --pine-soft: #E3ECE8;  /* 교육원 바탕 */
+  --sun: #F2B33D;        /* 잇는 선 – 햇살 노랑 */
+  --chat: #3E7CB1;       /* 수다쟁이 – 말풍선 파랑 */
+  --chat-soft: #E4EEF7;
+  --muted: #5E6B68;
+  --desk: #DCE3E0;       /* 화면용 책상 배경 */
+  --f-display: "Gowun Batang", "Nanum Myeongjo", serif;
+  --f-fun: "Jua", "Noto Sans KR", sans-serif;
+  --f-body: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body { background: var(--desk); color: var(--ink); font-family: var(--f-body); padding-inline: 16px; padding-block: 24px 48px; }
+
+.guide { max-width: 1100px; margin: 0 auto 20px; display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: baseline; font-size: 14px; color: var(--muted); }
+.guide h1 { font-family: var(--f-display); font-size: 20px; color: var(--pine); margin: 0; }
+.guide .ph { font-size: 13px; }
+.sheet-label { max-width: 1100px; margin: 28px auto 8px; font-size: 13px; letter-spacing: .08em; color: var(--muted); font-weight: 700; }
+
+.sheet { max-width: 1100px; margin: 0 auto; aspect-ratio: 297 / 210; display: grid; grid-template-columns: repeat(3, 1fr); background: var(--paper); box-shadow: 0 6px 24px rgb(31 74 69 / .18); position: relative; overflow: hidden; }
+.panel { container-type: inline-size; position: relative; min-width: 0; }
+.panel > .in { height: 100%; padding: 8cqi 8cqi 7cqi; display: flex; flex-direction: column; gap: 4.5cqi; font-size: 3.9cqi; line-height: 1.6; }
+.sheet::before, .sheet::after { content: ""; position: absolute; top: 0; bottom: 0; border-left: 1px dashed rgb(31 74 69 / .25); z-index: 2; pointer-events: none; }
+.sheet::before { left: 33.333%; } .sheet::after { left: 66.666%; }
+
+h2 { font-family: var(--f-display); font-weight: 700; font-size: 7.2cqi; line-height: 1.3; margin: 0; color: var(--pine); text-wrap: balance; }
+h3 { font-size: 4.4cqi; margin: 0; color: var(--pine); }
+p { margin: 0; }
+.eyebrow { font-size: 3cqi; letter-spacing: .14em; font-weight: 700; color: var(--muted); }
+.ph { background: rgb(242 179 61 / .28); border-bottom: 1px dashed var(--sun); padding: 0 .2em; }
+.thread { height: 1.2cqi; width: 22cqi; background: var(--sun); border-radius: 1cqi; }
+
+/* 표지 */
+.cover { background: var(--pine); color: var(--paper); }
+.cover > .in { justify-content: space-between; }
+.cover .eyebrow { color: var(--sun); }
+.cover h2 { color: var(--paper); font-size: 10.5cqi; }
+.cover .amp { font-family: var(--f-fun); color: var(--sun); font-size: 9cqi; display: block; line-height: 1.2; }
+.cover .chat-name { font-family: var(--f-fun); font-size: 12cqi; display: block; color: var(--paper); }
+.cover .slogan { font-family: var(--f-display); font-size: 5.2cqi; line-height: 1.55; }
+.cover .slogan b { color: var(--sun); font-weight: 700; }
+.knot { width: 100%; height: auto; display: block; }
+.cover .foot { font-size: 3.2cqi; opacity: .85; }
+
+/* 말풍선 */
+.bubble { position: relative; background: var(--chat-soft); color: var(--ink); border-radius: 5cqi; padding: 3.5cqi 4.5cqi; font-family: var(--f-fun); font-size: 4.3cqi; line-height: 1.45; }
+.bubble::after { content: ""; position: absolute; bottom: -2.4cqi; left: 7cqi; border: 2.4cqi solid transparent; border-top-color: var(--chat-soft); border-bottom: 0; }
+.bubble.right { align-self: flex-end; background: var(--chat); color: #fff; }
+.bubble.right::after { left: auto; right: 7cqi; border-top-color: var(--chat); }
+
+/* 교육원 소개 */
+.values { display: grid; gap: 3cqi; padding: 0; margin: 0; list-style: none; }
+.values li { display: grid; grid-template-columns: 15cqi 1fr; gap: 3cqi; align-items: start; }
+.values .k { font-family: var(--f-display); font-weight: 700; font-size: 5cqi; color: var(--pine); border-top: 1cqi solid var(--sun); padding-top: 1cqi; }
+.values p { color: var(--ink); }
+.quote { margin-top: auto; background: var(--pine-soft); border-radius: 3cqi; padding: 4.5cqi; font-family: var(--f-display); font-size: 4.3cqi; color: var(--pine); }
+
+/* 프로그램 */
+.programs { display: grid; gap: 3.2cqi; }
+.prog { border: 1px solid rgb(31 74 69 / .2); border-radius: 3cqi; padding: 3.2cqi 4cqi; background: #fff; }
+.prog h3 { display: flex; justify-content: space-between; gap: 2cqi; align-items: baseline; }
+.prog h3 small { font-size: 3cqi; font-weight: 500; color: var(--muted); white-space: nowrap; }
+.prog p { font-size: 3.6cqi; color: var(--muted); margin-top: .8cqi; }
+.tags { display: flex; flex-wrap: wrap; gap: 1.4cqi; margin-top: 1.6cqi; }
+.tags span { font-size: 3cqi; background: var(--pine-soft); color: var(--pine); border-radius: 10cqi; padding: .4cqi 2.2cqi; }
+
+/* 수다쟁이 */
+.chat-panel { background: var(--chat-soft); }
+.chat-panel h2 { font-family: var(--f-fun); font-weight: 400; color: var(--chat); font-size: 10cqi; }
+.chat-panel .bubble { background: #fff; }
+.chat-panel .bubble::after { border-top-color: #fff; }
+.chat-panel .bubble.right { background: var(--chat); }
+.chat-panel .bubble.right::after { border-top-color: var(--chat); }
+.acts { display: grid; grid-template-columns: 1fr 1fr; gap: 2.6cqi; }
+.act { background: #fff; border-radius: 3cqi; padding: 3cqi; }
+.act b { display: block; font-family: var(--f-fun); font-weight: 400; color: var(--chat); font-size: 4.4cqi; }
+.act span { font-size: 3.3cqi; color: var(--muted); line-height: 1.5; display: block; }
+.meet { margin-top: auto; border-top: 1px dashed var(--chat); padding-top: 3cqi; font-size: 3.6cqi; display: grid; grid-template-columns: auto 1fr; gap: 1cqi 3cqi; }
+.meet dt { font-weight: 700; color: var(--chat); }
+.meet dd { margin: 0; }
+
+/* 수강 안내 – 실제 절차라 번호 사용 */
+.steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 3.4cqi; counter-reset: s; }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 9cqi 1fr; gap: 3cqi; align-items: start; }
+.steps li::before { content: counter(s); width: 9cqi; height: 9cqi; border-radius: 50%; background: var(--sun); color: var(--pine); font-weight: 700; display: grid; place-items: center; font-size: 4.4cqi; }
+.steps b { display: block; color: var(--pine); }
+.steps span { font-size: 3.5cqi; color: var(--muted); }
+.who { background: var(--pine-soft); border-radius: 3cqi; padding: 4cqi; display: grid; gap: 1.5cqi; }
+.who ul { margin: 0; padding-left: 4.5cqi; font-size: 3.6cqi; }
+
+/* 뒷면 */
+.contact { display: grid; grid-template-columns: auto 1fr; gap: 2.2cqi 4cqi; margin: 0; font-size: 3.7cqi; }
+.contact dt { font-weight: 700; color: var(--pine); white-space: nowrap; }
+.contact dd { margin: 0; overflow-wrap: anywhere; }
+.map { border: 1px solid rgb(31 74 69 / .25); border-radius: 3cqi; aspect-ratio: 4 / 3; max-width: 100%; background:
+  repeating-linear-gradient(0deg, transparent 0 9cqi, rgb(31 74 69 / .07) 9cqi calc(9cqi + 1px)),
+  repeating-linear-gradient(90deg, transparent 0 9cqi, rgb(31 74 69 / .07) 9cqi calc(9cqi + 1px)), #fff;
+  display: grid; place-items: center; color: var(--muted); font-size: 3.4cqi; text-align: center; padding: 4cqi; }
+.qr-row { margin-top: auto; display: flex; gap: 4cqi; align-items: center; }
+.qr { width: 22cqi; aspect-ratio: 1; flex: none; border: 1.5px dashed var(--pine); border-radius: 2cqi; display: grid; place-items: center; font-size: 3cqi; color: var(--muted); }
+.qr-row p { font-size: 3.5cqi; color: var(--muted); }
+
+@media (max-width: 760px) {
+  .sheet { grid-template-columns: 1fr; aspect-ratio: auto; }
+  .sheet::before, .sheet::after { display: none; }
+  .panel { min-height: 0; border-bottom: 1px dashed rgb(31 74 69 / .25); }
+}
+
+@media print {
+  @page { size: A4 landscape; margin: 0; }
+  body { background: #fff; padding: 0; }
+  .guide, .sheet-label { display: none; }
+  .sheet { width: 297mm; height: 210mm; max-width: none; aspect-ratio: auto; box-shadow: none; grid-template-columns: repeat(3, 99mm); break-after: page; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .sheet::before, .sheet::after { display: none; }
+}
+</style>
+
+<header class="guide">
+  <h1>가치잇는평생교육원 &amp; 수다쟁이 · 3단 리플렛 시안</h1>
+  <span>A4 가로 · 3단 접지(99mm × 3) · 점선이 접는 선</span>
+  <span><span class="ph">노란 표시</span> 부분은 실제 정보로 바꿔 주세요</span>
+</header>
+
+<!-- ───────── 바깥면 ───────── -->
+<div class="sheet-label">바깥면 · 안쪽 접힘면 | 뒷면 | 표지</div>
+<section class="sheet" aria-label="바깥면">
+
+  <!-- 5. 안쪽 접힘면: 수강 안내 -->
+  <article class="panel"><div class="in">
+    <span class="eyebrow">HOW TO JOIN</span>
+    <h2>수강 신청 안내</h2>
+    <div class="thread"></div>
+    <ol class="steps">
+      <li><div><b>상담 · 문의</b><span>전화나 방문으로 듣고 싶은 과정을 상담해요.</span></div></li>
+      <li><div><b>수강 신청서 작성</b><span>방문 접수 또는 온라인 신청서 작성</span></div></li>
+      <li><div><b>수강료 납부</b><span>계좌이체 · 카드 결제 <span class="ph">(수강료 안내)</span></span></div></li>
+      <li><div><b>개강 · 수업 참여</b><span>개강일 안내 문자를 받고 첫 수업에 참여해요.</span></div></li>
+    </ol>
+    <div class="who">
+      <h3>이런 분께 추천해요</h3>
+      <ul>
+        <li>새로운 배움으로 인생 2막을 준비하는 분</li>
+        <li>자격증을 취득해 일자리를 찾고 싶은 분</li>
+        <li>사람들과 이야기 나누며 마음을 나누고 싶은 분</li>
+      </ul>
+    </div>
+  </div></article>
+
+  <!-- 6. 뒷면: 연락처 -->
+  <article class="panel"><div class="in">
+    <span class="eyebrow">CONTACT</span>
+    <h2>오시는 길</h2>
+    <div class="thread"></div>
+    <div class="map"><span>약도 이미지 자리<br><span class="ph">건물 · 주변 지형지물 표시</span></span></div>
+    <dl class="contact">
+      <dt>주소</dt><dd><span class="ph">○○시 ○○구 ○○로 00, 0층</span></dd>
+      <dt>전화</dt><dd><span class="ph">000-0000-0000</span></dd>
+      <dt>운영</dt><dd>평일 <span class="ph">09:00 – 18:00</span></dd>
+      <dt>교통</dt><dd><span class="ph">○○역 0번 출구 도보 5분</span></dd>
+      <dt>블로그</dt><dd><span class="ph">blog.naver.com/○○○</span></dd>
+    </dl>
+    <div class="qr-row">
+      <div class="qr">QR</div>
+      <p>QR코드를 찍으면 수강 신청과 수다쟁이 모임 일정을 바로 볼 수 있어요.</p>
+    </div>
+  </div></article>
+
+  <!-- 1. 표지 -->
+  <article class="panel cover"><div class="in">
+    <span class="eyebrow">평생교육 · 소통 공동체</span>
+    <div>
+      <h2>가치잇는<br>평생교육원</h2>
+      <span class="amp">&amp;</span>
+      <span class="chat-name">수다쟁이</span>
+    </div>
+    <svg class="knot" viewBox="0 0 300 90" aria-hidden="true">
+      <path d="M0 60 C 50 60, 60 20, 110 25 S 170 75, 210 50 S 260 15, 300 30" fill="none" stroke="#F2B33D" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="110" cy="25" r="9" fill="#FBFAF5"/>
+      <circle cx="210" cy="50" r="9" fill="#F2B33D"/>
+    </svg>
+    <p class="slogan">배움으로 <b>가치</b>를 잇고,<br>수다로 <b>마음</b>을 잇습니다.</p>
+    <p class="foot"><span class="ph">000-0000-0000</span></p>
+  </div></article>
+</section>
+
+<!-- ───────── 안쪽면 ───────── -->
+<div class="sheet-label">안쪽면 · 교육원 소개 | 교육 프로그램 | 수다쟁이</div>
+<section class="sheet" aria-label="안쪽면">
+
+  <!-- 2. 교육원 소개 -->
+  <article class="panel"><div class="in">
+    <span class="eyebrow">ABOUT US</span>
+    <h2>배움이 삶을 잇는 곳,<br>가치잇는평생교육원</h2>
+    <div class="thread"></div>
+    <p>가치잇는평생교육원은 누구나 나이와 상관없이 배우고, 배운 것을 이웃과 나누며 살아갈 수 있도록 돕는 지역 평생교육 기관입니다.</p>
+    <ul class="values">
+      <li><span class="k">배움</span><p>생활에 바로 쓰는 실용 교육부터 자격증 과정까지 단계별로 배워요.</p></li>
+      <li><span class="k">나눔</span><p>배운 사람이 다시 강사와 봉사자가 되어 지역에 돌려줘요.</p></li>
+      <li><span class="k">이음</span><p>세대와 이웃을 잇는 모임으로 함께하는 즐거움을 만들어요.</p></li>
+    </ul>
+    <p class="quote">“배우는 기쁨에는<br>정년이 없습니다.”</p>
+  </div></article>
+
+  <!-- 3. 교육 프로그램 -->
+  <article class="panel"><div class="in">
+    <span class="eyebrow">PROGRAMS</span>
+    <h2>교육 프로그램</h2>
+    <div class="thread"></div>
+    <div class="programs">
+      <div class="prog">
+        <h3>자격증 과정 <small><span class="ph">12주</span></small></h3>
+        <p>취업과 활동으로 이어지는 민간 자격 과정</p>
+        <div class="tags"><span>심리상담사</span><span>노인돌봄</span><span>독서지도사</span></div>
+      </div>
+      <div class="prog">
+        <h3>인문 · 교양 <small><span class="ph">8주</span></small></h3>
+        <p>읽고, 쓰고, 생각을 나누는 시간</p>
+        <div class="tags"><span>자서전 쓰기</span><span>인문학 산책</span><span>시 낭송</span></div>
+      </div>
+      <div class="prog">
+        <h3>디지털 생활 <small><span class="ph">4주</span></small></h3>
+        <p>스마트폰과 키오스크를 두려움 없이</p>
+        <div class="tags"><span>스마트폰 활용</span><span>키오스크</span><span>사진 · 영상</span></div>
+      </div>
+      <div class="prog">
+        <h3>문화 · 취미 <small><span class="ph">상시</span></small></h3>
+        <p>몸과 마음을 함께 돌보는 생활 문화</p>
+        <div class="tags"><span>캘리그라피</span><span>노래교실</span><span>건강체조</span></div>
+      </div>
+    </div>
+  </div></article>
+
+  <!-- 4. 수다쟁이 -->
+  <article class="panel chat-panel"><div class="in">
+    <span class="eyebrow">COMMUNITY</span>
+    <h2>수다쟁이</h2>
+    <p>말하면 가벼워지고, 들으면 따뜻해집니다. 수다쟁이는 가치잇는평생교육원이 함께 운영하는 이야기 나눔 모임이에요.</p>
+    <div class="bubble">요즘 어떻게 지내세요?</div>
+    <div class="bubble right">여기 오면 이야기할 사람이 있어서 좋아요!</div>
+    <div class="acts">
+      <div class="act"><b>이야기 모임</b><span>한 가지 주제로 편하게 나누는 수다</span></div>
+      <div class="act"><b>책 수다</b><span>함께 읽고 느낀 점 나누기</span></div>
+      <div class="act"><b>마음 돌봄</b><span>서로의 고민을 듣고 응원하기</span></div>
+      <div class="act"><b>나들이</b><span>계절마다 함께 떠나는 소풍</span></div>
+    </div>
+    <dl class="meet">
+      <dt>모임</dt><dd><span class="ph">매주 ○요일 오후 2시</span></dd>
+      <dt>장소</dt><dd>교육원 <span class="ph">○○실</span></dd>
+      <dt>참여</dt><dd>누구나 · <span class="ph">참가비 무료</span></dd>
+    </dl>
+  </div></article>
+</section>
